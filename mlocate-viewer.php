@@ -58,7 +58,7 @@ for($i=0; $i < $count_arr; $i++){
   //Parent Directory ==> 시간정보
 
 	$subdir = substr_replace($data_arr[$i], '', 0, strlen($dir)+16); 
-	//파싱한 엔트리 삭제
+	//파싱한 엔트리 제거
 	
 		$a = preg_replace('[\x00\x01]', "\n [D]", $subdir);
 		$c = preg_replace('[\x00\x00]', "\n [F]", $a);
