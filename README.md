@@ -3,6 +3,7 @@
 * This is mlocate.db file viewer
 
 * Usage : mlocate-viewer <mlocate.db>
+
 	mlocate-viewer /var/lib/mlocate/mlocate.db
 	
 * Support Files : mlocate.db
