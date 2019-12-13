@@ -1,10 +1,14 @@
 # mlocate-viewer
-preg_match_all('/[\x00\x00\x00\x00](?<timestamp>.{16})[\0x00\x00\x00\x00](?<entry>.*)[\0x00\0x02]/', $data, $out, PREG_SET_ORDER);
-preg_match_all('/[\x00{4}](?<timestamp>.{16})[\0x00{4}](?<parent>.*)[\0x00]/', $data, $out, PREG_OFFSET_CAPTURE);
+* version 0.0.0.1
+* This is mlocate.db file viewer
 
-$time_dir = unpack('N4TIME/Z*dir', $data);
-//unpack에서 배열은 1부터 00000000/00000000/00000000/00000000
-//											   1        2        3         4	
-	$timestamp = $time_dir[TIME2];
-	$nanosec = $time_dir[TIME3];
-	$dir = $time_dir[dir];
+* Usage : mlocate-viewer <mlocate.db>
+	mlocate-viewer /var/lib/mlocate/mlocate.db
+	
+* Support Files : mlocate.db
+		Unallocated Cluster
+
+* To submit bug reports and feature suggestions, or to track changes:
+  evefear@gmail.com (If you have any problem, please contact me.)
+
+https://github.com/mlocate1212/mlocate-viewer/
