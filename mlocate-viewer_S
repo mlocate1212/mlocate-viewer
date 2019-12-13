@@ -1,8 +1,8 @@
 #!/usr/bin/php
 <?php
 /*
-슬루스킷을 이용 미할당 영역 추출
-미할당 영역 카빙
+Extract Unallocated Area Using Sleuth Kit
+Unallocated Area Carving
 */
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
