@@ -2,9 +2,9 @@
 * version 0.0.0.1
 * This is mlocate.db file viewer
 
-* Usage : mlocate-viewer <mlocate.db>
+* Usage : mlocate-viewer.php <mlocate.db>
 
-	mlocate-viewer /var/lib/mlocate/mlocate.db
+	mlocate-viewer.php /var/lib/mlocate/mlocate.db
 	
 * Support Files : mlocate.db
 		Unallocated Cluster
