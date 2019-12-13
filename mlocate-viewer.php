@@ -62,10 +62,10 @@ for($i=0; $i < $count_arr; $i++){
 	
 		$a = preg_replace('[\x00\x01]', "\n [D]", $subdir);
 		$c = preg_replace('[\x00\x00]', "\n [F]", $a);
-		// directory, file classification
+		//directory, file classification
 		
 	echo $c;
-	// output
+	//output
 	echo "\n\n";	
 	
 }
