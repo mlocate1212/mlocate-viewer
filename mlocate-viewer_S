@@ -15,14 +15,15 @@ if($argv[1] && is_file($argv[1])){
 	$filename = "/var/lib/mlocate/mlocate.db";
 }
 
-$fp = fopen("blkls -A /dev/sda1", "r");
+$fp = popen("blkls -A /dev/sda1", "r");
 	while(!feof($fp)){
 	$data = fread($fp, 8192);
 
 	//preg_match_all('/[\x00{4}](?<timestamp>.{16})[\0x00{4}](?<parent>.*)[\0x00]/', $data, $out, PREG_OFFSET_CAPTURE);
 	preg_match_all('/[\x00\x00\x00\x00](?<timestamp>.{16})[\0x00\x00\x00\x00](?<entry>.*)[\0x00\0x02]/', $data, $out, PREG_SET_ORDER);
-
-	var_dump($out);
+	echo $out[0][timestamp];
+	echo $out[0][entry];
+	
 	flush();
 }
 
