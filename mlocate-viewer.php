@@ -17,33 +17,33 @@ fclose($handle);
 $header = substr($data, 1, 7);
 echo "File Header Find: ".$header;
 echo "\r\n";
-# 파일 헤더 가져오기  mlocate
+# Get file header information
 
 $conf_block_len = unpack("N", substr($data, 8, 4));
 echo "mlocate Configuration File Length: ".$conf_block_len[1];
 echo "\r\n";
-# updatedb.conf 설정 크기 가져오기
+# Get the size updatedb.conf block
 
 $updatedb_conf = substr($data, 18, $conf_block_len[1]);
 echo "updatedb.conf: ".$updatedb_conf;
 echo "\r\n";
-# 설정 부분 가져오기
+# Get the updatedb.conf contents
 
 $data = substr_replace($data, '', 0, $conf_block_len[1]+18); 
 /*
-파싱이 완료된 헤더를 제거한다.
+Remove parsing completed header
 */
 
 
 $data_arr = preg_split('[\x00\x02]', $data);
 /*
-Directory Entry를 0x0002로 구분자로 분리하고 배열에 저장한다.
+Separate Directory Entry with a delimiter of 0x0002 and save it in an array.
 */
 
 
 $count_arr = sizeof($data_arr)-1;
 /*
-배열크기 계산
+Array Size Calculation
 */
 
 for($i=0; $i < $count_arr; $i++){
@@ -55,17 +55,17 @@ for($i=0; $i < $count_arr; $i++){
 	$dateString = date("Y-m-d H:i:s", $timestamp).$nanosec;
 	
 	echo $dir." ==> ".$dateString;
-  //Parent Directory ==> 시간정보
+  	//Parent Directory ==> Timestamp
 
 	$subdir = substr_replace($data_arr[$i], '', 0, strlen($dir)+16); 
-	//파싱한 엔트리 제거
+	//Remove Parsed Entry
 	
 		$a = preg_replace('[\x00\x01]', "\n [D]", $subdir);
 		$c = preg_replace('[\x00\x00]', "\n [F]", $a);
-		// Subdirectory 디렉터리, 파일 구분 
+		// directory, file classification
 		
 	echo $c;
-	// 디렉터리, 파일 출력
+	// output
 	echo "\n\n";	
 	
 }
