@@ -46,7 +46,7 @@ $count_arr = sizeof($data_arr)-1;
 
 for($i=0; $i < $count_arr; $i++){
 	
-	// 00 00 00 00 5D B2 3E 71 21 F9 9E 8C 00 00 00 00 2F 00
+	// 00 00 00 00 5D B2 3E 71 21 F9 9E 8C 00 00 00 00 2F 00 ~ 00 02
 	$time_dir = unpack('N4TIME/Z*dir', $data_arr[$i]);
 	
 	$timestamp = $time_dir[TIME2];
